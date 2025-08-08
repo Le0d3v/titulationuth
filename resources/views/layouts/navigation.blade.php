@@ -6,15 +6,30 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <img src="{{asset("img/logo.png")}}" alt="" class="w-24">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                    @if (Auth::user()->rol == 1)
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('process')">
+                            {{ __('Procesos') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('students')" :active="request()->routeIs('students')">
+                            {{ __('Estudiantes') }}
+                        </x-nav-link>
+                    @elseif(Auth::user()->rol == 0)    
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('process')">
+                            {{ __('Mi Proceso') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
