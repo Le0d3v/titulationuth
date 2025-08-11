@@ -21,6 +21,15 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'tuition',
+        'born_date',
+        'telephone',
+        'rol',
+        'gener',
+        'civil_state',
+        'image',
+        'rfc',
+        'curp'
     ];
 
     /**
@@ -44,5 +53,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function dataschool()
+    {
+        return $this->hasOne(DataSchool::class);
     }
 }

@@ -18,4 +18,8 @@ Route::middleware("auth")->group(function() {
     Route::get("/students", [StudentController::class, "index"])->name("students");
 });
 
+
+// API's
+Route::get('/dataschools/{id}', [StudentController::class, 'showData'])->name('dataschools.show');
+
 require __DIR__.'/auth.php';

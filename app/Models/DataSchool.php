@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class DataSchool extends Model
 {
+    protected $table = 'dataschool';
+    
     protected $fillable = [
         "user_id", 
         "career",

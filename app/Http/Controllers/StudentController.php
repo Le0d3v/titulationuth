@@ -9,11 +9,17 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     public function index() {
-        // $user = User::factory()->count(600)->create();
-        $data = DataSchool::factory()->count(195)->create();
         $users = User::where("rol", 0)->get();
+        $dataUsers = DataSchool::all();
         return view("admin.students.index", [
-            "users" => $users
+            "users" => $users,
+            "dataUsers" => $dataUsers
         ]);
+    }
+
+    public function showData($id)
+    {
+        $data = DataSchool::were("id", $id);
+        return response()->json($data);
     }
 }

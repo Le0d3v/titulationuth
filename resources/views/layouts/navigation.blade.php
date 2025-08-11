@@ -22,9 +22,6 @@
                         <x-nav-link :href="route('students')" :active="request()->routeIs('students')">
                             {{ __('Estudiantes') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('students')" :active="request()->routeIs('students')">
-                            {{ __('Administradores') }}
-                        </x-nav-link>
                     @elseif(Auth::user()->rol == 0)    
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Dashboard') }}
