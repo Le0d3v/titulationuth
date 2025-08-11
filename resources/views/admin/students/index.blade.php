@@ -7,43 +7,47 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-          <div class="mb-4">
-            <button id="openModal" class="bg-green-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-green-700">
-              Registrar Nuevo Estudiante
-            </button>
-          </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 w-full text-center font-bold">
+                <div class="px-6 py-3 text-gray-900 w-full text-center font-bold text-3xl">
                     {{ __("Administración de Usuarios") }}
+                </div>
+                <div class="flex justify-between items-center px-5">
+                  <p class="text-center text-lg">
+                    Total de Estudiantes: 
+                      <span class="font-bold text-green-400">
+                        {{count($users)}}
+                      </span>
+                  </p>
+                  <div>
+                    <div class="mb-4">
+                      <h3 class="text-lg font-semibold mb-2">Filtrar por Grado</h3>
+                      <div class="flex space-x-4 items-center">
+                          <label class="flex items-center">
+                              <span class="mr-2">Todos</span>
+                              <input type="radio" name="grade" value="all" class="hidden peer" checked>
+                              <span class="bg-gray-500 text-white px-4 py-2 rounded cursor-pointer peer-checked:bg-green-600">
+                                  <!-- Espacio para el botón de selección -->
+                              </span>
+                          </label>
+                          <label class="flex items-center">
+                              <span class="mr-2">9°</span>
+                              <input type="radio" name="grade" value="9" class="hidden peer">
+                              <span class="bg-gray-500 text-white px-4 py-2 rounded cursor-pointer peer-checked:bg-green-600">
+                                  <!-- Espacio para el botón de selección -->
+                              </span>
+                          </label>
+                          <label class="flex items-center">
+                              <span class="mr-2">4°</span>
+                              <input type="radio" name="grade" value="4" class="hidden peer">
+                              <span class="bg-gray-500 text-white px-4 py-2 rounded cursor-pointer peer-checked:bg-green-600">
+                                  <!-- Espacio para el botón de selección -->
+                              </span>
+                          </label>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div id="modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden justify-center items-center w-full h-screen px-28 transition">
-      @include("admin.students.form-students")
-    </div>
-
-    <script>
-      document.getElementById('openModal').addEventListener('click', function() {
-          document.getElementById('modal').classList.remove('hidden');
-          document.getElementById('modal').classList.add('flex');
-          document.getElementById('modal').classList.add('justify-center');
-        });
-        
-        document.getElementById('closeModal').addEventListener('click', function() {
-          document.getElementById('modal').classList.add('hidden');
-          document.getElementById('modal').classList.remove('flex');
-          document.getElementById('modal').classList.remove('justify-center');
-        });
-        
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-          event.preventDefault();
-          // Aquí puedes agregar la lógica para enviar el formulario
-          alert('Formulario enviado');
-          document.getElementById('modal').classList.add('hidden');
-          document.getElementById('modal').classList.remove('flex');
-          document.getElementById('modal').classList.remove('justify-center');
-      });
-    </script>
 </x-app-layout>

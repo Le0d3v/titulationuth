@@ -22,12 +22,18 @@
                         <x-nav-link :href="route('students')" :active="request()->routeIs('students')">
                             {{ __('Estudiantes') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('students')" :active="request()->routeIs('students')">
+                            {{ __('Administradores') }}
+                        </x-nav-link>
                     @elseif(Auth::user()->rol == 0)    
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('process')">
                             {{ __('Mi Proceso') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('process')">
+                            {{ __('Mis Archivos') }}
                         </x-nav-link>
                     @endif
                 </div>
@@ -50,7 +56,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Perfil') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -60,7 +66,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Cerrar Sesión') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
