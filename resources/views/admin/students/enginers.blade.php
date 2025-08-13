@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="px-6 py-3 text-gray-900 w-full text-center font-bold text-3xl">
-                    {{ __("Administración de Estudiantes (TSU)") }}
+                    {{ __("Administración de Estudiantes (Ingeniería)") }}
                 </div>
                 <div class="flex justify-between items-center px-5">
                   <p class="text-center text-lg">

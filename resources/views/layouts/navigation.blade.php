@@ -14,13 +14,19 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     @if (Auth::user()->rol == 1)
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
+                            {{ __('Inicio') }}
                         </x-nav-link>
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('process')">
                             {{ __('Procesos') }}
                         </x-nav-link>
                         <x-nav-link :href="route('students')" :active="request()->routeIs('students')">
-                            {{ __('Estudiantes') }}
+                            {{ __('TSU') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('students.ing')" :active="request()->routeIs('students.ing')">
+                            {{ __('Ingenierías') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('students.ing')" :active="request()->routeIs('students.ing')">
+                            {{ __('Administración') }}
                         </x-nav-link>
                     @elseif(Auth::user()->rol == 0)    
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
