@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProcessController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -14,9 +15,13 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware("auth")->group(function() {
-    Route::get("/students", [StudentController::class, "index"])->name("students");
+    Route::get("/students-tsu", [StudentController::class, "index"])->name("students");
     Route::get("/students-ing", [StudentController::class, "showEngeniers"])->name("students.ing");
 
+});
+
+Route::middleware("auth")->group(function() {
+    Route::get("/processes", [ProcessController::class, "index"])->name("processes");
 });
 
 

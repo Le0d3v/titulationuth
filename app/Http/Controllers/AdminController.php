@@ -15,6 +15,8 @@ class AdminController extends Controller
         $eleven = DataSchool::where("semester", "11")->get(); 
         $admins = User::where("rol", 1)->get();
         $students = User::where("rol", 0)->get();
+        $processes = Process::all();
+        
         
         return view("dashboard",[
             "six" => $six,

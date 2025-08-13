@@ -13,19 +13,24 @@
                 </div>
                 <div class="flex gap-5 p-5">
                     <div class="w-full rounded bg-green-300 text-white p-5">
+                        <div class="w-full flex justify-center border-1 border-solid border-white rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"      stroke="currentColor" class="size-9">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                        </div>
                         <p class="text-center">
                             Alumnos Totales
                         </p>
-                        <p class="text-center font-bold text-3xl">
+                        <p class="text-center font-bold text-6xl mt-3">
                             {{count($students)}}
                         </p>
-                        <div class="w-full flex justify-center mt-3">
-                            <a href="{{route("students")}}" class="p-2 bg-green-500 rounded text-white hover:bg-green-700">
-                                Ver Más
-                            </a>
-                        </div>
                     </div>
                     <div class="w-full rounded bg-blue-300 text-white p-5">
+                        <div class="w-full flex justify-center border-1 border-solid border-white rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="size-9">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                            </svg>
+                        </div>
                         <p class="text-center">
                             TSUs Totales
                         </p>
@@ -39,6 +44,11 @@
                         </div>
                     </div>
                     <div class="w-full rounded bg-red-300 text-white p-5">
+                        <div class="w-full flex justify-center border-1 border-solid border-white rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="size-9">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                            </svg>
+                        </div>
                         <p class="text-center">
                             Ingenierías Totales
                         </p>
@@ -46,12 +56,17 @@
                             {{count($eleven)}}
                         </p>
                         <div class="w-full flex justify-center mt-3">
-                            <a href="{{route("students")}}" class="p-2 bg-red-500 rounded text-white hover:bg-red-700">
+                            <a href="{{route("students.ing")}}" class="p-2 bg-red-500 rounded text-white hover:bg-red-700">
                                 Ver Más
                             </a>
                         </div>
                     </div>
-                    <div class="w-full rounded bg-cyan-300 text-white p-5">
+                    <div class="w-full rounded bg-purple-300 text-white p-5">
+                        <div class="w-full flex justify-center border-1 border-solid border-white rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-9">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                            </svg>
+                        </div>
                         <p class="text-center">
                             Administradores Totales
                         </p>
@@ -59,7 +74,7 @@
                             {{count($admins)}}
                         </p>
                         <div class="w-full flex justify-center mt-3">
-                            <a href="{{route("students")}}" class="p-2 bg-cyan-500 rounded text-white hover:bg-cyan-700">
+                            <a href="{{route("students")}}" class="p-2 bg-purple-500 rounded text-white hover:bg-purple-700">
                                 Ver Más
                             </a>
                         </div>

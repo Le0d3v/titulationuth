@@ -16,7 +16,7 @@
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Inicio') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('process')">
+                        <x-nav-link :href="route('processes')" :active="request()->routeIs('processes')">
                             {{ __('Procesos') }}
                         </x-nav-link>
                         <x-nav-link :href="route('students')" :active="request()->routeIs('students')">
@@ -25,7 +25,7 @@
                         <x-nav-link :href="route('students.ing')" :active="request()->routeIs('students.ing')">
                             {{ __('Ingenierías') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('students.ing')" :active="request()->routeIs('students.ing')">
+                        <x-nav-link :href="route('students.ing')" :active="request()->routeIs('administration')">
                             {{ __('Administración') }}
                         </x-nav-link>
                     @elseif(Auth::user()->rol == 0)    
