@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class ProcessesFactory extends Factory
 {
     protected $model = Process::class;
+    private static $incrementingId = 1;
 
     /**
      * Define the model's default state.
@@ -20,15 +21,13 @@ class ProcessesFactory extends Factory
      */
     public function definition()
 {
-    $dataSchoolId = $this->faker->numberBetween(1, 100);
-
     return [
-        'id' => $this->faker->unique()->numberBetween(1, 999999999),
+        'id' => self::$incrementingId++,
         'data_validation' => $this->faker->boolean(),
         'images_upload' => $this->faker->boolean(),
         'donation_payment' => $this->faker->boolean(),
         'tittle_payment' => $this->faker->boolean(),
-        'dataSchool_id' => $dataSchoolId,
+        'success' => 0,
         'created_at' => $this->faker->dateTime(),
         'updated_at' => $this->faker->dateTime(),
     ];

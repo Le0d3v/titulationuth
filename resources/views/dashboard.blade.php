@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -97,7 +99,7 @@
                                     Procesos Totales
                                 </p>
                                 <p class="text-center font-bold text-3xl">
-                                    {{count($six)}}
+                                    {{count($procesos6)}}
                                 </p>
                             </div>
                             <div class="p-3 border-green-300 border-2 rounded-lg text-center">
@@ -110,7 +112,7 @@
                                     Procesos Completados
                                 </p>
                                 <p class="text-center font-bold text-3xl">
-                                    {{count($students)}}
+                                    {{count($procesos6completados)}}
                                 </p>
                             </div>
                             <div class="p-3 border-orange-300 border-2 rounded-lg text-center">
@@ -123,7 +125,7 @@
                                     Procesos Pendientes
                                 </p>
                                 <p class="text-center font-bold text-3xl">
-                                    {{count($students)}}
+                                    {{count($procesos6pendientes)}}
                                 </p>
                             </div>
                         </div>
@@ -143,7 +145,7 @@
                                     Procesos Totales
                                 </p>
                                 <p class="text-center font-bold text-3xl">
-                                    {{count($eleven)}}
+                                    {{count($procesos11)}}
                                 </p>
                             </div>
                             <div class="p-3 border-green-300 border-2 rounded-lg text-center">
@@ -156,7 +158,7 @@
                                     Procesos Completados
                                 </p>
                                 <p class="text-center font-bold text-3xl">
-                                    {{count($students)}}
+                                    {{count($procesos11completados)}}
                                 </p>
                             </div>
                             <div class="p-3 border-orange-300 border-2 rounded-lg text-center">
@@ -169,7 +171,7 @@
                                     Procesos Pendientes
                                 </p>
                                 <p class="text-center font-bold text-3xl">
-                                    {{count($students)}}
+                                    {{count($procesos11pendientes)}}
                                 </p>
                             </div>
                         </div>

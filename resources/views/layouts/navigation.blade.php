@@ -29,8 +29,8 @@
                             {{ __('Administración') }}
                         </x-nav-link>
                     @elseif(Auth::user()->rol == 0)    
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
+                        <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                            {{ __('Inicio') }}
                         </x-nav-link>
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('process')">
                             {{ __('Mi Proceso') }}

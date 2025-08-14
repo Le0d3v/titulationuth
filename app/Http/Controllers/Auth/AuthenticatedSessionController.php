@@ -37,7 +37,12 @@ class AuthenticatedSessionController extends Controller
         if ($user && Auth::attempt(['id' => $user->id, 'password' => $request->password])) {
             $request->session()->regenerate();
 
-            return redirect()->intended('dashboard'); // Cambia 'dashboard' por la ruta deseada
+            if($user->rol == 1) {
+                return redirect()->intended('dashboard'); // Cambia 'dashboard' por la ruta deseada
+            }
+            
+            return redirect()->intended('home'); // Cambia 'dashboard' por la ruta deseada
+
         }
 
         return back()->withErrors([

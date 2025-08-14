@@ -17,7 +17,7 @@ return new class extends Migration
             $table->boolean("images_upload");
             $table->boolean("donation_payment");
             $table->boolean("tittle_payment");
-            $table->foreignId("dataSchool_id")->constrained("dataSchool");
+            $table->boolean("success");
             $table->timestamps();
         });
     }

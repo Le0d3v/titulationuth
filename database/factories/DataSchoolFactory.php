@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Models\Process;
 use App\Models\DataSchool;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,6 +23,7 @@ class DataSchoolFactory extends Factory
     {
         // Obtener un usuario aleatorio que aún no tenga un registro en dataschool
         $user = User::whereDoesntHave('dataschool')->inRandomOrder()->first();
+        $process = Process::whereDoesntHave('dataschool')->inRandomOrder()->first();
 
         if ($user) {
             return [
@@ -39,6 +41,7 @@ class DataSchoolFactory extends Factory
                 'specialty' => $this->faker->word(),
                 'semester' => $this->faker->randomElement(["6", "11"]),
                 'shift' => $this->faker->randomElement(['Matutino', 'Vespertino', 'Nocturno']),
+                'process_id' => $process->id,
             ];
         } else {
             // Si no hay más usuarios sin registro en dataschool, detener la creación

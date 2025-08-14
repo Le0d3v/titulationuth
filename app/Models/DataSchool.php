@@ -19,4 +19,12 @@ class DataSchool extends Model
     public function User() {
         return $this->belongsTo(User::class);
     }
+
+    public function process() {
+        return $this->belongsTo(Process::class);
+    }
+
+    public function dataSchool() {
+        return $this->belongsTo(DataSchool::class, 'user_id');
+    }
 }
