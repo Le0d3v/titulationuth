@@ -51,6 +51,36 @@ class Process extends Model
         if($this->data_validation == 1) {
             $processes[] = $this->data_validation;
         }
+        if($this->images_upload == 1) {
+            $processes[] = $this->images_upload;
+        }
+        if($this->donation_payment == 1) {
+            $processes[] = $this->donation_payment;
+        }
+        if($this->tittle_payment == 1) {
+            $processes[] = $this->data_validation;
+        }
+
+        return $processes;
+    }
+
+    public function getIncompletedProcesses() {
+        $processes = [];
+
+        if($this->data_validation == 0) {
+            $processes[] = $this->data_validation;
+        }
+        if($this->images_upload == 0) {
+            $processes[] = $this->images_upload;
+        }
+        if($this->donation_payment == 0) {
+            $processes[] = $this->donation_payment;
+        }
+        if($this->tittle_payment == 0) {
+            $processes[] = $this->data_validation;
+        }
+
+        return $processes;
     }
 
 }

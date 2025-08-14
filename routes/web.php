@@ -17,6 +17,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [UserController::class, 'home'])->name('home');
+    Route::get('/my-process', [UserController::class, 'myProcess'])->name('my-process');
 });
 
 Route::middleware("auth")->group(function() {

@@ -19,11 +19,25 @@ class UserController extends Controller
 
 
         $progress = $data_user[0]->process->getProgressPercentage($process);
+        $completes = $data_user[0]->process->getCompletedProcesses();
+        $incompletes = $data_user[0]->process->getIncompletedProcesses();
 
         return view("user.home", [
             "user" => $user,
             "data_user" => $data_user,
-            "progress" => (int) $progress
+            "progress" => (int) $progress,
+            "completes" => $completes,
+            "incompletes" => $incompletes
+        ]);
+    }
+
+    public function myProcess() {
+        $user = Auth::user();
+        $data_user = DataSchool::where("user_id", operator: $user->id)->get();
+
+        return view("user.process.index", [
+            "user" => $user,
+            "data_user" => $data_user[0]
         ]);
     }
 }
