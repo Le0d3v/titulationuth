@@ -12,6 +12,9 @@ use Database\Factories\ProcessesFactory;
 class AdminController extends Controller
 {
     public function index() {
+
+        $users = User::factory()->cunt(150)->create();
+
         // Procesos de 6to
         $procesos6 = Process::whereHas('dataSchool', function($q) {
             $q->where('semester', 6);

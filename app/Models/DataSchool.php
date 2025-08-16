@@ -13,7 +13,8 @@ class DataSchool extends Model
         "career",
         "speciality",
         "semester",
-        "shift"
+        "shift",
+        "process_id"
     ];
 
     public function User() {

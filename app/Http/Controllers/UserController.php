@@ -17,7 +17,6 @@ class UserController extends Controller
         $process["donation_payment"] = $data_user[0]->process->donation_payment;
         $process["tittle_payment"] = $data_user[0]->process->tittle_payment;
 
-
         $progress = $data_user[0]->process->getProgressPercentage($process);
         $completes = $data_user[0]->process->getCompletedProcesses();
         $incompletes = $data_user[0]->process->getIncompletedProcesses();
@@ -34,10 +33,22 @@ class UserController extends Controller
     public function myProcess() {
         $user = Auth::user();
         $data_user = DataSchool::where("user_id", operator: $user->id)->get();
+        $completed_process = $data_user[0]->process->getCompletedProcesses();
+        $incompleted_process = $data_user[0]->process->getIncompletedProcesses();
+
+        $process["data_validation"] = $data_user[0]->process->data_validation;
+        $process["images_upload"] = $data_user[0]->process->images_upload;
+        $process["donation_payment"] = $data_user[0]->process->donation_payment;
+        $process["tittle_payment"] = $data_user[0]->process->tittle_payment;
+
+        $progress = $data_user[0]->process->getProgressPercentage($process);
 
         return view("user.process.index", [
             "user" => $user,
-            "data_user" => $data_user[0]
+            "data_user" => $data_user[0],
+            "completed_process" => $completed_process,
+            "incompleted_process" => $incompleted_process,
+            "progress" => $progress,
         ]);
     }
 }
