@@ -51,6 +51,20 @@
                         Acciones:
                     </p>
                 </div>
+                <div class="mt-2 w-full flex justify-between py-1 px-10">
+                    <p class="text-gray-400 text-sm font-bold mx-auto w-12 text-center">
+                        Validación de Datos Personales
+                    </p>
+                    <p class="text-gray-400 text-sm font-bold mx-auto">
+                        Estado:
+                    </p>
+                    <p class="text-gray-400 text-sm font-bold mx-auto">
+                        Comentarios:
+                    </p>
+                    <p class="text-gray-400 text-sm font-bold mx-auto">
+                        Acciones:
+                    </p>
+                </div>
             </div>
         </div>
     </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\ProcessController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WebServicesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', [AdminController::class, "index"])->middleware(['auth', 'verified'])->name('dashboard');
@@ -31,7 +32,14 @@ Route::middleware("auth")->group(function() {
 });
 
 
-// API's
-Route::get('/dataschools/{id}', [StudentController::class, 'showData'])->name('dataschools.show');
+// APIs
+Route::get('/api/get-users', [WebServicesController::class, 'getStudents'])->name('api.getUsers');
+Route::get('/api/get-user/{id}', [WebServicesController::class, 'getStudent'])->name('api.getUser');
+Route::get('/api/get-dataschools', [WebServicesController::class, 'getDataSchools'])->name('api.getDatSchools');
+Route::get('/api/get-dataschool/{id}', [WebServicesController::class, 'getDataSchool'])->name('api.getDatSchool');
+Route::get('/api/get-processes', [WebServicesController::class, 'getProcesses'])->name('api.getProcesses');
+Route::get('/api/get-process/{id}', [WebServicesController::class, 'getProcess'])->name('api.getProcess');
+Route::get('/api/get-dataschool/{id}', [WebServicesController::class, 'getDataSchool'])->name('api.getDatSchool');
+Route::get('/api/dataschools/{id}', [StudentController::class, 'showData'])->name('dataschools.show');
 
 require __DIR__.'/auth.php';
