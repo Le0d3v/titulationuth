@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('dataSchool', function (Blueprint $table) {
+        Schema::table('dataschool', function (Blueprint $table) {
             $table->unsignedBigInteger('process_id')->nullable(); // Columna para la referencia
             $table->foreign('process_id')->references('id')->on('processes')->onDelete('cascade'); 
         });
@@ -22,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('data_school', function (Blueprint $table) {
+        Schema::table('dataschool', function (Blueprint $table) {
             $table->dropColumn("processs_id");
         });
     }
