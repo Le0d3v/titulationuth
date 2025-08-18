@@ -51,4 +51,11 @@ class UserController extends Controller
             "progress" => $progress,
         ]);
     }
+
+    public function dataValidation() {
+        $data_user = DataSchool::where("user_id", Auth::user()->id)->get();
+        return view("user.process.data_validation", [
+            "data" => $data_user[0],
+        ]);
+    }
 }

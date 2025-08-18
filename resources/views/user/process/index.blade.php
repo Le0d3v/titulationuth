@@ -15,9 +15,9 @@
                 </div>
                 <div class="mt-3 px-20 flex justify-between w-full items-center gap-5">
                     <div>
-                        <p class="text-sm">
+                        <p class="">
                             Procesos Completados:
-                            <span class="text-green-400 font-bold text-xl">
+                            <span class="text-green-400 font-bold text-2xl">
                                 {{count($completed_process)}}
                             </span>
                         </p>
@@ -29,41 +29,158 @@
                         <x-progress-bar :percentage="$progress"></x-progress-bar>
                     </div>
                     <div>
-                        <p class="text-sm">
+                        <p class="">
                             Procesos Pendientes:
-                            <span class="text-yellow-400 font-bold text-xl">
+                            <span class="text-yellow-400 font-bold text-2xl">
                                 {{count($incompleted_process)}}
                             </span>
                         </p>
                     </div>
                 </div>
-                <div class="mt-2 w-full flex justify-between py-5 px-10">
-                    <p class="text-gray-400 text-sm font-bold mx-auto">
-                        Proceso:
-                    </p>
-                    <p class="text-gray-400 text-sm font-bold mx-auto">
-                        Estado:
-                    </p>
-                    <p class="text-gray-400 text-sm font-bold mx-auto">
-                        Comentarios:
-                    </p>
-                    <p class="text-gray-400 text-sm font-bold mx-auto">
-                        Acciones:
-                    </p>
-                </div>
-                <div class="mt-2 w-full flex justify-between py-1 px-10">
-                    <p class="text-gray-400 text-sm font-bold mx-auto w-12 text-center">
-                        Validación de Datos Personales
-                    </p>
-                    <p class="text-gray-400 text-sm font-bold mx-auto">
-                        Estado:
-                    </p>
-                    <p class="text-gray-400 text-sm font-bold mx-auto">
-                        Comentarios:
-                    </p>
-                    <p class="text-gray-400 text-sm font-bold mx-auto">
-                        Acciones:
-                    </p>
+                <div class="mt-3 p-5">
+                    <table id="dataSchoolTable" class="w-full table-auto border-collapse">
+                        <thead>
+                            <tr class="bg-green-500 text-white">
+                                <th class="px-4 py-2">Proceso</th>
+                                <th class="px-4 py-2">Estado</th>
+                                <th class="px-4 py-2">Comentarios</th>
+                                <th class="px-4 py-2">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            <tr class="border-b-2 py-1">
+                                <td class="text-center p-4">
+                                    <p class="text-sm">
+                                        {{"Validación de Datos personales"}}
+                                    </p>
+                                </td>
+                                <td class="text-center p-4">
+                                    @if ($data_user->process->data_validation == 0)
+                                        <p class="p-1 rounded-lg bg-yellow-400 text-white font-bold">
+                                            Pendiente
+                                        </p>
+                                    @elseif ($data_user->process->data_validation == 1)
+                                        <p class="p-1 rounded-lg bg-green-500 text-white font-bold">
+                                            Completado
+                                        </p>
+                                    @endif
+                                </td>
+                                <td class="text-center p-4">
+                                    <p class="text-gray-400 text-sm">
+                                       Sin Comentarios
+                                    </p>
+                                </td>
+                               <td class="text-center p-4">
+                                    <div>
+                                        <a 
+                                            href="{{route("dataValidation")}}" 
+                                            class="p-1 rounded bg-blue-500 text-white font-bold"
+                                        >
+                                            Validar Datos
+                                        </a>
+                                    </div>
+                               </td>
+                            </tr>
+                            <tr class="border-b-2 py-1">
+                                <td class="text-center p-4">
+                                    <p class="text-sm">
+                                        {{"Carga de Imágenes para Titulación"}}
+                                    </p>
+                                </td>
+                                <td class="text-center p-4">
+                                    @if ($data_user->process->images_upload == 0)
+                                        <p class="p-1 rounded-lg bg-yellow-400 text-white font-bold">
+                                            Pendiente
+                                        </p>
+                                    @elseif ($data_user->process->images_upload == 1)
+                                        <p class="p-1 rounded-lg bg-green-500 text-white font-bold">
+                                            Completado
+                                        </p>
+                                    @elseif ($data_user->process->images_upload == 2)
+                                        <p class="p-1 rounded-lg bg-red-500 text-white font-bold">
+                                            Rechazado
+                                        </p>
+                                    @endif
+                                </td>
+                                <td class="text-center p-4">
+                                    <p class="text-sm">
+                                       Imágenes Aceptadas
+                                    </p>
+                                </td>
+                               <td class="text-center p-4">
+                                    <div>
+                                        <a href="#" class="p-1 rounded bg-blue-500 text-white font-bold">
+                                            Cargar
+                                        </a>
+                                    </div>
+                               </td>
+                            </tr>
+                            <tr class="border-b-2 py-1">
+                                <td class="text-center p-4">
+                                    <p class="text-sm">
+                                        {{"Comprobante de Pago por Donación de Inmobiliaria"}}
+                                    </p>
+                                </td>
+                                <td class="text-center p-4">
+                                    @if ($data_user->process->donation_payment == 0)
+                                        <p class="p-1 rounded-lg bg-yellow-400 text-white font-bold">
+                                            Pendiente
+                                        </p>
+                                    @elseif ($data_user->process->donation_payment == 1)
+                                        <p class="p-1 rounded-lg bg-green-500 text-white font-bold">
+                                            Completado
+                                        </p>
+                                    @elseif ($data_user->process->donation_payment == 2)
+                                        <p class="p-1 rounded-lg bg-red-500 text-white font-bold">
+                                            Rechazado
+                                        </p>
+                                    @endif
+                                </td>
+                                <td class="text-center p-4">
+                                    <p class="text-sm">
+                                        Comprobante equivocado
+                                    </p>
+                                </td>
+                               <td class="text-center p-4">
+                                    <div>
+                                        <a href="#" class="p-1 rounded bg-blue-500 text-white font-bold">
+                                            Cargar
+                                        </a>
+                                    </div>
+                               </td>
+                            </tr>
+                            <tr class="border-b-2 py-1">
+                                <td class="text-center p-4">
+                                    <p class="text-sm">
+                                        {{"Pago de Titulo Universitario"}}
+                                    </p>
+                                </td>
+                                <td class="text-center p-4">
+                                    @if ($data_user->process->tittle_payment == 0)
+                                        <p class="p-1 rounded-lg bg-yellow-400 text-white font-bold">
+                                            Pendiente
+                                        </p>
+                                    @elseif ($data_user->process->tittle_payment == 1)
+                                        <p class="p-1 rounded-lg bg-green-500 text-white font-bold">
+                                            Completado
+                                        </p>
+                                    @endif
+                                </td>
+                                <td class="text-center p-4">
+                                    <p class="text-gray-400 text-sm">
+                                       Sin Comentarios
+                                    </p>
+                                </td>
+                               <td class="text-center p-4">
+                                    <div>
+                                        <a href="#" class="p-1 rounded bg-blue-500 text-white font-bold">
+                                            Cargar
+                                        </a>
+                                    </div>
+                               </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
