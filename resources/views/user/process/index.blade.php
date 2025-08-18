@@ -74,7 +74,7 @@
                                     <div>
                                         <a 
                                             href="{{route("dataValidation")}}" 
-                                            class="p-1 rounded bg-blue-500 text-white font-bold"
+                                            class="p-1 rounded bg-blue-500 text-white font-bold hover:bg-blue-700 transition"
                                         >
                                             Validar Datos
                                         </a>

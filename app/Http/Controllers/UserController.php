@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Process;
 use App\Models\DataSchool;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,5 +59,39 @@ class UserController extends Controller
         return view("user.process.data_validation", [
             "data" => $data_user[0],
         ]);
+    }
+
+    public function dataValidationStore(Request $request) {
+        $request->validate([
+            "name" => "required",
+            "curp" => "required",
+            "rfc" => "required",
+            "born_date" => "required",
+            "gener" => "required",
+            "civil_state" => "required",
+            "telephone" => "required",
+            "email" => "required",
+        ]);
+
+        $user = User::find(Auth::user());
+        $dataSchool = DataSchool::where("user_id", Auth::user()->id)->get();
+        $process = Process::where("id", $dataSchool[0]->process_id)->get();
+
+        
+        $user[0]->name = $request->name;
+        $user[0]->curp = $request->curp;
+        $user[0]->rfc = $request->rfc;
+        $user[0]->born_date = $request->born_date;
+        $user[0]->gener = $request->gener;
+        $user[0]->civil_state = $request->civil_state;
+        $user[0]->telephone = $request->telephone;
+        $user[0]->email = $request->civil_state;
+        
+        $process[0]->data_validation = 1;
+
+        $user[0]->save();
+        $process[0]->save();
+
+        return redirect()->intended('my-process');
     }
 }
