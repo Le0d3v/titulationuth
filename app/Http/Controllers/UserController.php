@@ -85,7 +85,7 @@ class UserController extends Controller
         $user[0]->gener = $request->gener;
         $user[0]->civil_state = $request->civil_state;
         $user[0]->telephone = $request->telephone;
-        $user[0]->email = $request->civil_state;
+        $user[0]->email = $request->email;
         
         $process[0]->data_validation = 1;
 
