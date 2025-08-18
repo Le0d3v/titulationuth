@@ -94,4 +94,8 @@ class UserController extends Controller
 
         return redirect()->intended('my-process');
     }
+
+    public function myFiles() {
+        return view("user.process.files");
+    }
 }

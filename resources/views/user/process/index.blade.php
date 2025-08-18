@@ -109,8 +109,8 @@
                                 </td>
                                <td class="text-center p-4">
                                     <div>
-                                        <a href="#" class="p-1 rounded bg-blue-500 text-white font-bold">
-                                            Cargar
+                                        <a href="{{route("myFiles")}}" class="p-1 rounded bg-blue-500 text-white font-bold">
+                                            Cargar Archivos
                                         </a>
                                     </div>
                                </td>

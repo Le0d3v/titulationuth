@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-process', [UserController::class, 'myProcess'])->name('my-process');
     Route::get('/data-validation', [UserController::class, 'dataValidation'])->name('dataValidation');
     Route::post('/data-validation', [UserController::class, 'dataValidationStore'])->name('dataValidation.store');
+    Route::get('/my-files', [UserController::class, 'myFiles'])->name('myFiles');
 });
 
 Route::middleware("auth")->group(function() {

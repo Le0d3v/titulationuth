@@ -35,7 +35,7 @@
                         <x-nav-link :href="route('my-process')" :active="request()->routeIs('my-process')">
                             {{ __('Mi Proceso') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('process')">
+                        <x-nav-link :href="route('myFiles')" :active="request()->routeIs('myFiles')">
                             {{ __('Mis Archivos') }}
                         </x-nav-link>
                     @endif
