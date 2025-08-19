@@ -100,7 +100,7 @@
                                         <p class="p-1 rounded-lg bg-blue-500 text-white font-bold">
                                             En Revisión
                                         </p>
-                                    @elseif ($data_user->process->images_upload == 2)
+                                    @elseif ($data_user->process->images_upload == 3)
                                         <p class="p-1 rounded-lg bg-red-500 text-white font-bold">
                                             Rechazado
                                         </p>
@@ -138,7 +138,7 @@
                                         <p class="p-1 rounded-lg bg-blue-500 text-white font-bold">
                                             En Revisión
                                         </p>
-                                    @elseif ($data_user->process->donation_payment == 2)
+                                    @elseif ($data_user->process->donation_payment == 3)
                                         <p class="p-1 rounded-lg bg-red-500 text-white font-bold">
                                             Rechazado
                                         </p>
