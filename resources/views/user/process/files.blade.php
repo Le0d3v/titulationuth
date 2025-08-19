@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="mt-5 flex justify-center">
                                             <div class="flex gap-5">
-                                                <a href="" class="p-2 rounded bg-blue-400 text-white text-bold hover:bg-blue-600">
+                                                <a href="{{route("image.donwload", $data->process_id)}}" class="p-2 rounded bg-blue-400 text-white text-bold hover:bg-blue-600">
                                                     Descargar
                                                 </a>
                                                 <a href="" class="p-2 rounded bg-red-400 text-white text-bold hover:bg-red-600">

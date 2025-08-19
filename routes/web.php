@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FilesController;
 use App\Http\Controllers\ProcessController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
@@ -8,14 +9,17 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebServicesController;
 use Illuminate\Support\Facades\Route;
 
+// Admin
 Route::get('/dashboard', [AdminController::class, "index"])->middleware(['auth', 'verified'])->name('dashboard');
 
+// Profile
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Student
 Route::middleware('auth')->group(function () {
     Route::get('/home', [UserController::class, 'home'])->name('home');
     Route::get('/my-process', [UserController::class, 'myProcess'])->name('my-process');
@@ -27,16 +31,16 @@ Route::middleware('auth')->group(function () {
     Route::post('/my-files/image-tittle-upload', [UserController::class, 'imageTittleStore'])->name('imageTittle.store');
 });
 
+// Admin
 Route::middleware("auth")->group(function() {
     Route::get("/students-tsu", [StudentController::class, "index"])->name("students");
     Route::get("/students-ing", [StudentController::class, "showEngeniers"])->name("students.ing");
-
-});
-
-Route::middleware("auth")->group(function() {
     Route::get("/processes", [ProcessController::class, "index"])->name("processes");
 });
 
+
+// Files Donwloads
+Route::get('/my-files/download-image/{id}', [FilesController::class, 'downloadImg'])->name('image.donwload');
 
 // APIs
 Route::get('/api/get-users', [WebServicesController::class, 'getStudents'])->name('api.getUsers');
