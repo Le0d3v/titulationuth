@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/data-validation', [UserController::class, 'dataValidation'])->name('dataValidation');
     Route::post('/data-validation', [UserController::class, 'dataValidationStore'])->name('dataValidation.store');
     Route::get('/my-files', [UserController::class, 'myFiles'])->name('myFiles');
+    Route::post('/my-files/image-titulation-upload', [UserController::class, 'imageStore'])->name('image.store');
 });
 
 Route::middleware("auth")->group(function() {

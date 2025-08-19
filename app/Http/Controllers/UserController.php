@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Process;
 use App\Models\DataSchool;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class UserController extends Controller
 {
@@ -96,6 +100,37 @@ class UserController extends Controller
     }
 
     public function myFiles() {
-        return view("user.process.files");
+        $data = DataSchool::where("user_id", Auth::user()->id)->get();
+        return view("user.process.files", [
+            "data" => $data[0]
+        ]);
+    }
+
+    public function imageStore(Request $request) {
+        $dataSchool = DataSchool::where("user_id", Auth::user()->id)->get();
+        $process = Process::where("id", $dataSchool[0]->process_id)->get();
+
+        // Leer la imágen desde el request
+        $imagen = $request->file("image_titulation_url");
+
+        $nombreImagen = Str::uuid() . "." . $imagen->extension(); // Crear un nombre unico para las imagenes
+
+        $path = public_path("/img/uploads/pictures/" . $nombreImagen);
+
+        $manager = new ImageManager(new Driver);
+
+        $img = $manager->read($imagen);
+
+        $img->resize(1000, 1000);
+
+        $img->save($path);
+
+        $process[0]->images_upload = 1;
+        $process[0]->image_titulation_url = $nombreImagen;
+        $process[0]->save();
+
+
+        //Contruir una respuesta pra dropzone
+        return redirect()->intended('my-files');
     }
 }
