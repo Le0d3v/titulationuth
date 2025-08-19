@@ -23,6 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/data-validation', [UserController::class, 'dataValidationStore'])->name('dataValidation.store');
     Route::get('/my-files', [UserController::class, 'myFiles'])->name('myFiles');
     Route::post('/my-files/image-titulation-upload', [UserController::class, 'imageStore'])->name('image.store');
+    Route::post('/my-files/image-donation-upload', [UserController::class, 'imageDonationStore'])->name('imageDonation.store');
+    Route::post('/my-files/image-tittle-upload', [UserController::class, 'imageTittleStore'])->name('imageTittle.store');
 });
 
 Route::middleware("auth")->group(function() {
