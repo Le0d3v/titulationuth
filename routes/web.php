@@ -27,7 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/data-validation', [UserController::class, 'dataValidationStore'])->name('dataValidation.store');
     Route::get('/my-files', [UserController::class, 'myFiles'])->name('myFiles');
     Route::post('/my-files/image-titulation-upload', [UserController::class, 'imageStore'])->name('image.store');
-    Route::post('/my-files/image-donation-upload', [UserController::class, 'imageDonationStore'])->name('imageDonation.store');
     Route::post('/my-files/image-tittle-upload', [UserController::class, 'imageTittleStore'])->name('imageTittle.store');
 });
 
@@ -39,8 +38,10 @@ Route::middleware("auth")->group(function() {
 });
 
 
-// Files Donwloads
-Route::get('/my-files/download-image/{id}', [FilesController::class, 'downloadImg'])->name('image.donwload');
+// Files
+Route::get('/files/download-image/{id}', [FilesController::class, 'downloadImg'])->name('image.donwload');
+Route::post('/files/upload-pdf', [FilesController::class, 'pdfStore'])->name('pdf.store');
+Route::get('/files/download-pdf/{id}', [FilesController::class, 'downloadPDF'])->name('pdf.donwload');
 
 // APIs
 Route::get('/api/get-users', [WebServicesController::class, 'getStudents'])->name('api.getUsers');

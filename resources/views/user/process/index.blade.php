@@ -97,6 +97,10 @@
                                             Completado
                                         </p>
                                     @elseif ($data_user->process->images_upload == 2)
+                                        <p class="p-1 rounded-lg bg-blue-500 text-white font-bold">
+                                            En Revisión
+                                        </p>
+                                    @elseif ($data_user->process->images_upload == 2)
                                         <p class="p-1 rounded-lg bg-red-500 text-white font-bold">
                                             Rechazado
                                         </p>
@@ -122,13 +126,17 @@
                                     </p>
                                 </td>
                                 <td class="text-center p-4">
-                                    @if ($data_user->process->donation_payment == 0)
+                                   @if ($data_user->process->donation_payment == 0)
                                         <p class="p-1 rounded-lg bg-yellow-400 text-white font-bold">
                                             Pendiente
                                         </p>
                                     @elseif ($data_user->process->donation_payment == 1)
                                         <p class="p-1 rounded-lg bg-green-500 text-white font-bold">
                                             Completado
+                                        </p>
+                                    @elseif ($data_user->process->donation_payment == 2)
+                                        <p class="p-1 rounded-lg bg-blue-500 text-white font-bold">
+                                            En Revisión
                                         </p>
                                     @elseif ($data_user->process->donation_payment == 2)
                                         <p class="p-1 rounded-lg bg-red-500 text-white font-bold">
@@ -143,8 +151,8 @@
                                 </td>
                                <td class="text-center p-4">
                                     <div>
-                                        <a href="#" class="p-1 rounded bg-blue-500 text-white font-bold">
-                                            Cargar
+                                        <a href="{{route("myFiles")}}" class="p-1 rounded bg-blue-500 text-white font-bold">
+                                            Cargar Archivos
                                         </a>
                                     </div>
                                </td>
@@ -152,7 +160,7 @@
                             <tr class="border-b-2 py-1">
                                 <td class="text-center p-4">
                                     <p class="text-sm">
-                                        {{"Pago de Titulo Universitario"}}
+                                        {{"Referencia de Titulo Universitario"}}
                                     </p>
                                 </td>
                                 <td class="text-center p-4">
@@ -164,6 +172,14 @@
                                         <p class="p-1 rounded-lg bg-green-500 text-white font-bold">
                                             Completado
                                         </p>
+                                    @elseif ($data_user->process->tittle_payment == 2)
+                                        <p class="p-1 rounded-lg bg-blue-500 text-white font-bold">
+                                            En Revisión
+                                        </p>
+                                    @elseif ($data_user->process->tittle_payment == 2)
+                                        <p class="p-1 rounded-lg bg-red-500 text-white font-bold">
+                                            Rechazado
+                                        </p>
                                     @endif
                                 </td>
                                 <td class="text-center p-4">
@@ -173,8 +189,8 @@
                                 </td>
                                <td class="text-center p-4">
                                     <div>
-                                        <a href="#" class="p-1 rounded bg-blue-500 text-white font-bold">
-                                            Cargar
+                                        <a href="{{route("myFiles")}}" class="p-1 rounded bg-blue-500 text-white font-bold">
+                                            Cargar Archivos
                                         </a>
                                     </div>
                                </td>
