@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Process;
 use App\Models\DataSchool;
-use Database\Factories\DataSchoolFactory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Database\Factories\ProcessesFactory;
+use Database\Factories\DataSchoolFactory;
 
 class AdminController extends Controller
 {
@@ -45,6 +46,14 @@ class AdminController extends Controller
             'procesos6pendientes'  => $procesos6pendientes,
             'procesos11completados'=> $procesos11completados,
             'procesos11pendientes' => $procesos11pendientes
+        ]);
+    }
+
+    public function showStudent($id) {
+        $data_user = DataSchool::where("user_id", $id)->get();
+
+        return view("admin.students.student", [
+            "data" => $data_user[0],
         ]);
     }
 }

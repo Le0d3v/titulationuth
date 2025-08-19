@@ -52,12 +52,12 @@
                                     <td class="text-center p-3">{{$data->semester}}</td>
                                     <td class="text-center p-3">{{$data->shift}}</td>
                                     <td class="flex justify-center p-2">
-                                        <button 
+                                        <a 
                                             class="showData p-2 rounded bg-green-400 text-white font-bold hover:bg-green-600 cursor-pointer text-sm"
-                                            onclick="showData($data->id)"
+                                            href="{{route("student.show", $data->user->id)}}"
                                         >
                                             Ver Más
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

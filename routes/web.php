@@ -32,10 +32,10 @@ Route::middleware('auth')->group(function () {
 // Admin
 Route::middleware("auth")->group(function() {
     Route::get("/students-tsu", [StudentController::class, "index"])->name("students");
-    Route::get("/students-ing", [StudentController::class, "showEngeniers"])->name("students.ing");
+    Route::get("/students-ing", [StudentController::class, "showEngeniers"])->name(name: "students.ing");
     Route::get("/processes", [ProcessController::class, "index"])->name("processes");
+    Route::get("/students/show-data/{id}", [AdminController::class, "showStudent"])->name("student.show");
 });
-
 
 // Files
 Route::post('/files/image-titulation-upload', [UserController::class, 'imageStore'])->name('image.store');
