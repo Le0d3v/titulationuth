@@ -67,6 +67,7 @@
                                                 type="submit" 
                                                 value="Guardar Imágen" 
                                                 class="p-2 bg-green-500 text-white rounded hover:cursor-pointer hover:bg-green-700"
+                                                required
                                             >
                                         </div>
                                     </form>
@@ -89,8 +90,15 @@
                                             Sin Archivos Aún
                                         </p>
                                     @elseif($data->process->image_donation_url)
-                                        <div class="flex justify-center">
-                                           <p>
+                                        <div class="">
+                                            <div>
+                                                <div class="flex justify-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="size-12">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                           <p class="mt-1 text-center">
                                                 {{$data->process->image_donation_url}}
                                            </p>
                                         </div>
@@ -129,6 +137,7 @@
                                                 type="submit" 
                                                 value="Subir PDF" 
                                                 class="p-2 bg-green-500 text-white rounded hover:cursor-pointer hover:bg-green-700"
+                                                required
                                             >
                                         </div>
                                     </form>
@@ -138,29 +147,28 @@
                     </div>
                     <div class="rounded-lg shadow bg-gray-50 p-5 mt-10">
                         <legend class="font-bold text-green-400 text-3xl mb-2">
-                            Imágen de Compbroante de Pago por Titulación
+                            Referencia de Pago de Titulo Universitario
                         </legend>
                         <div class="flex gap-16 items-center">
                             <div class="w-full">
                                 <h1 class="text-center font-bold text-xl">
-                                    Imágen Actual
+                                    Referencia Actual
                                 </h1>
                                 <div class="mt-5 border-2 rounded border-dashed border-gray-400 p-5">
                                     @if (!$data->process->image_tittle_url)
                                         <p class="text-gray-400 text-center p-5">
-                                            Sin imágenes aún 
+                                            Sin Referencia Registrada
                                         </p>
-                                    @elseif($data->process->image_tittle_url)
+                                        @elseif($data->process->image_tittle_url)
                                         <div class="flex justify-center">
-                                            <img src="{{asset("img/uploads/tittles/" . $data->process->image_tittle_url)}}" alt="" width="250">
+                                            <p class="text-blue-400 text-center p-5 font-bold text-xl">
+                                                {{$data->process->image_tittle_url}}
+                                            </p>
                                         </div>
-                                        <div class="mt-5 flex justify-center">
-                                            <div class="flex gap-5">
-                                                <a href="" class="p-2 rounded bg-blue-400 text-white text-bold hover:bg-blue-600">
-                                                    Descargar
-                                                </a>
+                                        <div class="mt-2 flex justify-center">
+                                            <div class="flex justify-center">
                                                 <a href="" class="p-2 rounded bg-red-400 text-white text-bold hover:bg-red-600">
-                                                    Eliminar
+                                                    Eliminar Referencia
                                                 </a>
                                             </div>
                                         </div>
@@ -169,26 +177,26 @@
                             </div>
                             <div class="w-full">
                                 <h1 class="text-center font-bold text-xl">
-                                    Cargar Imágen
+                                    Registrar Referencia
                                 </h1>
                                 <div class="mt-5 shadow-lg rounded p-5">
                                     <form 
-                                        action="{{route("imageTittle.store")}}" 
+                                        action="{{route("reference.store")}}" 
                                         method="post" 
-                                        enctype="multipart/form-data"
                                     >
                                         @csrf
-                                        <label for="image_tittle_url" class="text-sm text-gray-500 font-bold block">
-                                            Imagen aquí
+                                        <label for="reference" class="text-sm text-gray-500 font-bold block">
+                                            Referencia de Pago
                                         </label>
                                         <div class="p-3 bg-gray-100 rounded mt-3">
-                                            <input type="file" id="image_tittle_url" name="image_tittle_url" accept=".jpg, .jpeg">
+                                            <input type="text" id="reference" name="reference" class="p-1 w-full rounded bg-blue-400 text-white">
                                         </div>
                                         <div class="flex justify-end mt-5">
                                             <input 
                                                 type="submit" 
-                                                value="Guardar Imágen" 
+                                                value="Enviar Referencia" 
                                                 class="p-2 bg-green-500 text-white rounded hover:cursor-pointer hover:bg-green-700"
+                                                required
                                             >
                                         </div>
                                     </form>

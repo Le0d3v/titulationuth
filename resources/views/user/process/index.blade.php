@@ -176,7 +176,7 @@
                                         <p class="p-1 rounded-lg bg-blue-500 text-white font-bold">
                                             En Revisión
                                         </p>
-                                    @elseif ($data_user->process->tittle_payment == 2)
+                                    @elseif ($data_user->process->tittle_payment == 3)
                                         <p class="p-1 rounded-lg bg-red-500 text-white font-bold">
                                             Rechazado
                                         </p>

@@ -67,16 +67,16 @@ class Process extends Model
     public function getIncompletedProcesses() {
         $processes = [];
 
-        if($this->data_validation == 0 || $this->data_validation == 2) {
+        if($this->data_validation == 0 || $this->data_validation == 2 || $this->data_validation == 3) {
             $processes[] = $this->data_validation;
         }
-        if($this->images_upload == 0 || $this->images_upload == 2) {
+        if($this->images_upload == 0 || $this->images_upload == 2 || $this->images_upload == 3) {
             $processes[] = $this->images_upload;
         }
-        if($this->donation_payment == 0 || $this->donation_payment == 2) {
+        if($this->donation_payment == 0 || $this->donation_payment == 2 || $this->donation_payment == 3) {
             $processes[] = $this->donation_payment;
         }
-        if($this->tittle_payment == 0 || $this->tittle_payment == 2) {
+        if($this->tittle_payment == 0 || $this->tittle_payment == 2 || $this->tittle_payment == 3) {
             $processes[] = $this->tittle_payment;
         }
 

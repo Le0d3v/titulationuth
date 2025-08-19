@@ -26,8 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/data-validation', [UserController::class, 'dataValidation'])->name('dataValidation');
     Route::post('/data-validation', [UserController::class, 'dataValidationStore'])->name('dataValidation.store');
     Route::get('/my-files', [UserController::class, 'myFiles'])->name('myFiles');
-    Route::post('/my-files/image-titulation-upload', [UserController::class, 'imageStore'])->name('image.store');
-    Route::post('/my-files/image-tittle-upload', [UserController::class, 'imageTittleStore'])->name('imageTittle.store');
+    Route::post('/my-files/payment-tittle-reference', [UserController::class, 'referenceStore'])->name('reference.store');
 });
 
 // Admin
@@ -39,6 +38,7 @@ Route::middleware("auth")->group(function() {
 
 
 // Files
+Route::post('/files/image-titulation-upload', [UserController::class, 'imageStore'])->name('image.store');
 Route::get('/files/download-image/{id}', [FilesController::class, 'downloadImg'])->name('image.donwload');
 Route::post('/files/upload-pdf', [FilesController::class, 'pdfStore'])->name('pdf.store');
 Route::get('/files/download-pdf/{id}', [FilesController::class, 'downloadPDF'])->name('pdf.donwload');

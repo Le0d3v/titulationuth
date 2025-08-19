@@ -134,27 +134,16 @@ class UserController extends Controller
         return redirect()->intended('my-files');
     }
 
-    public function imageDonationStore(Request $request) {
+    public function referenceStore(Request $request) {
         $dataSchool = DataSchool::where("user_id", Auth::user()->id)->get();
         $process = Process::where("id", $dataSchool[0]->process_id)->get();
 
-        // Leer la imágen desde el request
-        $imagen = $request->file("image_donation_url");
+        $request->validate([
+            "reference" => "required|string"
+        ]);
 
-        $nombreImagen = Str::uuid() . "." . $imagen->extension(); // Crear un nombre unico para las imagenes
-
-        $path = public_path("/img/uploads/donations/" . $nombreImagen);
-
-        $manager = new ImageManager(new Driver);
-
-        $img = $manager->read($imagen);
-
-        $img->resize(1000, 1000);
-
-        $img->save($path);
-
-        $process[0]->donation_payment = 1;
-        $process[0]->image_donation_url = $nombreImagen;
+        $process[0]->image_tittle_url = $request->reference;
+        $process[0]->tittle_payment = 2;
         $process[0]->save();
 
         return redirect()->intended('my-files');
