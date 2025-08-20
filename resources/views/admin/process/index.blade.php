@@ -12,53 +12,136 @@
                     {{ __("Procesos de Titulación") }}
                 </div>
 
-                <div class="w-full flex justify-center items-center p-5 mt-1">
+                <div class="w-full flex gap-10 p-5 mt-1">
                     <div class="w-full p-3 shadow-md">
                         <h2 class="text-center font-bold text-green-400 text-2xl">
                             TSU
                         </h2>
-                        <p class="text-sm text-gray-400">
+                        <p class="text-sm text-gray-400 mb-3">
                             Estudiantes:
                         </p>
-                        <div class="mt-5">
+                        <hr>
+                        <div class="mt-1 h-96 overflow-y-scroll">
                             @foreach ($students6 as $student)
-                                <div class="my-3 flex justify-between p-5 border-2 rounded border-green-500">
-                                    <div>
-                                        <h2 class="text-green-400 font-bold text-xl">
-                                            Información General
-                                        </h2>
-                                        <div class="mt-5">
-                                            <p class="text-gray-400">
-                                                Nombre:
-                                                <span class="text-black font-bold">
-                                                    {{$student->user->name}}
-                                                </spanc>
-                                            </p>
+                                <div class="border-2 rounded border-green-500 p-5 my-5">
+                                    <div class="my-1 flex justify-between p-5 w-full">
+                                        <div>
+                                            <h2 class="text-green-400 font-bold text-xl">
+                                                Información General
+                                            </h2>
+                                            <div class="mt-5">
+                                                <p class="text-gray-400">
+                                                    Nombre:
+                                                    <span class="text-black font-bold">
+                                                        {{$student->user->name}}
+                                                    </spanc>
+                                                </p>
+                                                <p class="text-gray-400">
+                                                    Carrera:
+                                                    <span class="text-black font-bold">
+                                                        {{$student->career}}
+                                                    </spanc>
+                                                </p>
+                                                <p class="text-gray-400">
+                                                    Especialidad:
+                                                    <span class="text-black font-bold">
+                                                        {{$student->specialty}}
+                                                    </spanc>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2 class="text-green-400 font-bold text-xl mb-5">
+                                                Acciones
+                                            </h2>
+                                            <div class="mt-5">
+                                                <a 
+                                                    href="{{route("processes.show", $student->process_id)}}"
+                                                    class="mt-5 p-2 bg-blue-500 text-white font-bold hover:bg-blue-700 rounded"
+                                                >
+                                                    Ver Proceso
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <h2 class="text-green-400 font-bold text-xl mb-5">
-                                            Acciones
-                                        </h2>
-                                        <div class="mt-5">
-                                            <a 
-                                                href="#"
-                                                class="mt-5 p-2 bg-blue-500 text-white font-bold hover:bg-blue-700 rounded"
-                                            >
-                                                Ver Proceso
-                                            </a>
+                                    <div class="mt-1 w-full">
+                                        <p class="text-center font-bold my-1">
+                                            Progreso de Titulación
+                                        </p>
+                                        <div class="w-full">
+                                            <x-progress-bar :percentage="$student->process->getProgressPercentage2()">
+                                            </x-progress-bar>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
+                        <hr>
                     </div>
-                    <div class="w-full flex justify-center items-center p-5 mt-3">
-                        <div class="w-full p-3 shadow-md">
-                            <h2 class="text-center font-bold text-green-400 text-2xl">
-                                Ingeniería
-                            </h2>
+                    <div class="w-full p-3 shadow-md">
+                        <h2 class="text-center font-bold text-green-400 text-2xl">
+                            Ingeniería
+                        </h2>
+                        <p class="text-sm text-gray-400 mb-3">
+                            Estudiantes:
+                        </p>
+                        <hr>
+                        <div class="mt-1 h-96 overflow-y-scroll">
+                            @foreach ($students11 as $student)
+                                <div class="border-2 rounded border-green-500 p-5 my-5">
+                                    <div class="my-1 flex justify-between p-5 w-full">
+                                        <div>
+                                            <h2 class="text-green-400 font-bold text-xl">
+                                                Información General
+                                            </h2>
+                                            <div class="mt-5">
+                                                <p class="text-gray-400">
+                                                    Nombre:
+                                                    <span class="text-black font-bold">
+                                                        {{$student->user->name}}
+                                                    </spanc>
+                                                </p>
+                                                <p class="text-gray-400">
+                                                    Carrera:
+                                                    <span class="text-black font-bold">
+                                                        {{$student->career}}
+                                                    </spanc>
+                                                </p>
+                                                <p class="text-gray-400">
+                                                    Especialidad:
+                                                    <span class="text-black font-bold">
+                                                        {{$student->specialty}}
+                                                    </spanc>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2 class="text-green-400 font-bold text-xl mb-5">
+                                                Acciones
+                                            </h2>
+                                            <div class="mt-5">
+                                                <a 
+                                                    href="{{route("processes.show", $student->process_id)}}"
+                                                    class="mt-5 p-2 bg-blue-500 text-white font-bold hover:bg-blue-700 rounded"
+                                                >
+                                                    Ver Proceso
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-1 w-full">
+                                        <p class="text-center font-bold my-1">
+                                            Progreso de Titulación
+                                        </p>
+                                        <div class="w-full">
+                                            <x-progress-bar :percentage="$student->process->getProgressPercentage2()">
+                                            </x-progress-bar>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
+                        <hr>
                     </div>
                 </div>
             </div>

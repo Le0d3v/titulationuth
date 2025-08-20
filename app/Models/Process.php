@@ -44,6 +44,26 @@ class Process extends Model
 
         return $completedSteps / $totalSteps * 100;
     }
+    public function getProgressPercentage2($processes = [])
+    {
+        $totalSteps = 4;
+        $completedSteps = 0;
+
+        if ($this->data_validation == 1) {
+            $completedSteps++;
+        }
+        if ($this->images_upload == 1) {
+            $completedSteps++;
+        }
+        if ($this->donation_payment == 1) {
+            $completedSteps++;
+        }
+        if ($this->tittle_payment == 1) {
+            $completedSteps++;
+        }
+
+        return $completedSteps / $totalSteps * 100;
+    }
 
     public function getCompletedProcesses() {
         $processes = [];

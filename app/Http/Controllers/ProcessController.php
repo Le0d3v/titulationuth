@@ -17,4 +17,12 @@ class ProcessController extends Controller
             "students6" => $students6,
         ]);
     }
+
+    public function show($id) {
+        $data = DataSchool::where("process_id", $id)->get();
+        return view("admin.process.show", [
+            "data" => $data[0],
+        ]);
+    }
 }
+

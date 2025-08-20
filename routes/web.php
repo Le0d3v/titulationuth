@@ -34,7 +34,8 @@ Route::middleware("auth")->group(function() {
     Route::get("/students-tsu", [StudentController::class, "index"])->name("students");
     Route::get("/students-ing", [StudentController::class, "showEngeniers"])->name(name: "students.ing");
     Route::get("/processes", [ProcessController::class, "index"])->name("processes");
-    Route::get("/students/show-data/{id}", [AdminController::class, "showStudent"])->name("student.show");
+    Route::get("/processes/show/{id}", [ProcessController::class, "show"])->name("processes.show");
+    Route::get("/students/show-data/{id}", [ProcessController::class, "showStudent"])->name("student.show");
 });
 
 // Files
