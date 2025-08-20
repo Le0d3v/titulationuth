@@ -24,5 +24,34 @@ class ProcessController extends Controller
             "data" => $data[0],
         ]);
     }
+
+    public function aceptImage($id) {
+        $data = DataSchool::where("process_id", $id)->get();
+        $data[0]->process->images_upload = 1;
+        $data[0]->process->save();
+
+        return back();
+    }
+    
+    public function rejectImage($id) {
+        $data = DataSchool::where("process_id", $id)->get();
+        $data[0]->process->images_upload = 3;
+        $data[0]->process->save();
+
+        return back();
+    }
+
+    public function comentImage(Request $request) { 
+        $data = DataSchool::where("process_id", $request->id)->get();
+
+        $request->validate([
+            "image_coment" => "required|string"
+        ]);
+
+        $data[0]->process->image_coments = $request->image_coment;
+        $data[0]->process->save();
+
+        return back();
+    }
 }
 

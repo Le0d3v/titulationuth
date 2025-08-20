@@ -35,7 +35,14 @@ Route::middleware("auth")->group(function() {
     Route::get("/students-ing", [StudentController::class, "showEngeniers"])->name(name: "students.ing");
     Route::get("/processes", [ProcessController::class, "index"])->name("processes");
     Route::get("/processes/show/{id}", [ProcessController::class, "show"])->name("processes.show");
+    Route::get("/processes/show/{id}", [ProcessController::class, "show"])->name("processes.show");
     Route::get("/students/show-data/{id}", [ProcessController::class, "showStudent"])->name("student.show");
+
+    // Process (image)
+    Route::get("/process/accept-image/{id}", [ProcessController::class, "aceptImage"])->name("process.aceptImage");
+    Route::get("/process/reject-image/{id}", [ProcessController::class, "rejectImage"])->name("process.rejectImage");
+    Route::post("/process/coment-image", [ProcessController::class, "comentImage"])->name("process.comentImage");
+
 });
 
 // Files
