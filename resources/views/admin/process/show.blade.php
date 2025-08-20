@@ -183,7 +183,7 @@
                             </div>
                             <div class="w-full">
                                 <h1 class="text-center font-bold text-xl">
-                                    Cargar Archivo
+                                    Enviar un Comentario (Opcional)
                                 </h1>
                                 <div class="mt-5 shadow-lg rounded p-5">
                                     <form 
@@ -252,15 +252,15 @@
                                                 {{$data->process->image_tittle_url}}
                                             </p>
                                         </div>
-                                        <p class="text-center text-gray-400 font-bold mt-5">
+                                        <p class="text-center text-gray-400 font-bold mt-1">
                                             Acciones:
                                         </p>
                                         <div class="mt-2 flex justify-center">
                                             <div class="flex justify-center gap-5">
-                                                <a href="" class="p-2 rounded bg-green-400 text-white text-bold hover:bg-green-600">
+                                                <a href="{{route("process.aceptTittle", $data->process_id)}}" class="p-2 rounded bg-green-400 text-white text-bold hover:bg-green-600">
                                                     Aprobar
                                                 </a>
-                                                <a href="" class="p-2 rounded bg-red-400 text-white text-bold hover:bg-red-600">
+                                                <a href="{{route("process.rejectTittle", $data->process_id)}}" class="p-2 rounded bg-red-400 text-white text-bold hover:bg-red-600">
                                                     Rechazar
                                                 </a>
                                             </div>
@@ -270,19 +270,21 @@
                             </div>
                             <div class="w-full">
                                 <h1 class="text-center font-bold text-xl">
-                                    Registrar Referencia
+                                    Enviar Comentarios (Opcional)
                                 </h1>
                                 <div class="mt-5 shadow-lg rounded p-5">
                                     <form 
-                                        action="{{route("reference.store")}}" 
+                                        action="{{route("process.comentTittle")}}" 
                                         method="post" 
                                     >
                                         @csrf
-                                        <label for="reference" class="text-sm text-gray-500 font-bold block">
-                                            Referencia de Pago
+                                        <label for="tittle_coment" class="text-sm text-gray-500 font-bold block">
+                                            Comentario
                                         </label>
                                         <div class="p-3 bg-gray-100 rounded mt-3">
-                                            <input type="text" id="reference" name="reference" class="p-1 w-full rounded bg-blue-400 text-white">
+                                            <textarea name="tittle_coment" id="tittle_coment" class="rounded w-full h-20">
+                                            </textarea>
+                                            <input type="hidden" name="id" value="{{$data->process_id}}">
                                         </div>
                                         <div class="flex justify-end mt-5">
                                             <input 

@@ -81,5 +81,33 @@ class ProcessController extends Controller
 
         return back();
     }
+    public function aceptTittle($id) {
+        $data = DataSchool::where("process_id", $id)->get();
+        $data[0]->process->tittle_payment = 1;
+        $data[0]->process->save();
+
+        return back();
+    }
+    
+    public function rejectTittle($id) {
+        $data = DataSchool::where("process_id", $id)->get();
+        $data[0]->process->tittle_payment = 3;
+        $data[0]->process->save();
+
+        return back();
+    }
+
+    public function comentTittle(Request $request) { 
+        $data = DataSchool::where("process_id", $request->id)->get();
+
+        $request->validate([
+            "tittle_coment" => "required|string"
+        ]);
+
+        $data[0]->process->tittle_coments = $request->tittle_coment;
+        $data[0]->process->save();
+
+        return back();
+    }
 }
 

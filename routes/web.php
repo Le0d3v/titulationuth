@@ -48,6 +48,11 @@ Route::middleware("auth")->group(function() {
     Route::get("/process/reject-donation/{id}", [ProcessController::class, "rejectDonation"])->name("process.rejectDonation");
     Route::post("/process/coment-donation", [ProcessController::class, "comentDonation"])->name("process.comentDonation");
 
+    // Process (tittle)
+    Route::get("/process/accept-tittle/{id}", [ProcessController::class, "aceptTittle"])->name("process.aceptTittle");
+    Route::get("/process/reject-tittle/{id}", [ProcessController::class, "rejectTittle"])->name("process.rejectTittle");
+    Route::post("/process/coment-tittle", [ProcessController::class, "comentTittle"])->name("process.comentTittle");
+
 });
 
 // Files
