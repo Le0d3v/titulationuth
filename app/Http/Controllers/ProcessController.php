@@ -53,5 +53,33 @@ class ProcessController extends Controller
 
         return back();
     }
+    public function aceptDonation($id) {
+        $data = DataSchool::where("process_id", $id)->get();
+        $data[0]->process->donation_payment = 1;
+        $data[0]->process->save();
+
+        return back();
+    }
+    
+    public function rejectDonation($id) {
+        $data = DataSchool::where("process_id", $id)->get();
+        $data[0]->process->donation_payment = 3;
+        $data[0]->process->save();
+
+        return back();
+    }
+
+    public function comentDonation(Request $request) { 
+        $data = DataSchool::where("process_id", $request->id)->get();
+
+        $request->validate([
+            "donation_coment" => "required|string"
+        ]);
+
+        $data[0]->process->donation_coments = $request->donation_coment;
+        $data[0]->process->save();
+
+        return back();
+    }
 }
 

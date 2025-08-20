@@ -43,6 +43,11 @@ Route::middleware("auth")->group(function() {
     Route::get("/process/reject-image/{id}", [ProcessController::class, "rejectImage"])->name("process.rejectImage");
     Route::post("/process/coment-image", [ProcessController::class, "comentImage"])->name("process.comentImage");
 
+    // Process (donation)
+    Route::get("/process/accept-donation/{id}", [ProcessController::class, "aceptDonation"])->name("process.aceptDonation");
+    Route::get("/process/reject-donation/{id}", [ProcessController::class, "rejectDonation"])->name("process.rejectDonation");
+    Route::post("/process/coment-donation", [ProcessController::class, "comentDonation"])->name("process.comentDonation");
+
 });
 
 // Files

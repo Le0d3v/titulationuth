@@ -170,10 +170,10 @@
                                                 <a href="{{route("pdf.donwload", $data->process_id)}}" class="p-2 rounded bg-blue-400 text-white text-bold hover:bg-blue-600">
                                                     Descargar
                                                 </a>
-                                                <a href="" class="p-2 rounded bg-green-400 text-white text-bold hover:bg-green-600">
+                                                <a href="{{route("process.aceptDonation", $data->process_id)}}" class="p-2 rounded bg-green-400 text-white text-bold hover:bg-green-600">
                                                     Aprobar
                                                 </a>
-                                                <a href="" class="p-2 rounded bg-red-400 text-white text-bold hover:bg-red-600">
+                                                <a href="{{route("process.rejectDonation", $data->process_id)}}" class="p-2 rounded bg-red-400 text-white text-bold hover:bg-red-600">
                                                     Rechazar
                                                 </a>
                                             </div>
@@ -187,21 +187,22 @@
                                 </h1>
                                 <div class="mt-5 shadow-lg rounded p-5">
                                     <form 
-                                        action="{{route("pdf.store")}}" 
+                                        action="{{route("process.comentDonation")}}" 
                                         method="post" 
-                                        enctype="multipart/form-data"
                                     >
                                         @csrf
-                                        <label for="donation_pdf" class="text-sm text-gray-500 font-bold block">
-                                            Archivo aquí (.pdf)
+                                        <label for="donation_coment" class="text-sm text-gray-500 font-bold block">
+                                            Comentario:
                                         </label>
-                                        <div class="p-3 bg-gray-100 rounded mt-3">
-                                            <input type="file" id="donation_pdf" name="donation_pdf" accept="application/pdf">
+                                        <div class="p-2 bg-gray-100 rounded mt-3 w-full">
+                                            <textarea name="donation_coment" id="donation_coment" class="rounded w-full h-20">
+                                            </textarea>
+                                            <input type="hidden" name="id" value="{{$data->process_id}}">
                                         </div>
                                         <div class="flex justify-end mt-5">
                                             <input 
                                                 type="submit" 
-                                                value="Subir PDF" 
+                                                value="Enviar Comentario" 
                                                 class="p-2 bg-green-500 text-white rounded hover:cursor-pointer hover:bg-green-700"
                                                 required
                                             >
