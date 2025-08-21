@@ -112,13 +112,13 @@
                                         </p>
                                     @endif
                                 </td>
-                                @if (!$data_user->process->donation_payment)
+                                @if (!$data_user->process->image_coments)
                                         <p class="text-gray-400 text-sm">
                                             Sin Comentarios
                                         </p>
                                     @else
                                         <p class="text-sm">
-                                            {{$data_user->process->donation_payment}}
+                                            {{$data_user->process->image_coments}}
                                         </p>
                                     @endif
                                <td class="text-center p-4">
@@ -155,9 +155,15 @@
                                     @endif
                                 </td>
                                 <td class="text-center p-4">
-                                    <p class="text-sm">
-                                        Comprobante equivocado
-                                    </p>
+                                    @if (!$data_user->process->donation_coments)
+                                        <p class="text-gray-400 text-sm">
+                                            Sin Comentarios
+                                        </p>
+                                    @else
+                                        <p class="text-sm">
+                                            {{$data_user->process->donation_coments}}
+                                        </p>
+                                    @endif
                                 </td>
                                <td class="text-center p-4">
                                     <div>
@@ -193,13 +199,13 @@
                                     @endif
                                 </td>
                                 <td class="text-center p-4">
-                                    @if (!$data_user->process->tittle_payment)
+                                    @if (!$data_user->process->tittle_coments)
                                         <p class="text-gray-400 text-sm">
                                             Sin Comentarios
                                         </p>
                                     @else
                                         <p class="text-sm">
-                                            {{$data_user->process->tittle_payment}}
+                                            {{$data_user->process->tittle_coments}}
                                         </p>
                                     @endif
                                 </td>
