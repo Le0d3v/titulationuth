@@ -38,7 +38,7 @@ Route::middleware("auth")->group(function() {
     Route::get("/processes", [ProcessController::class, "index"])->name("processes");
     Route::get("/processes/show/{id}", [ProcessController::class, "show"])->name("processes.show");
     Route::get("/processes/show/{id}", [ProcessController::class, "show"])->name("processes.show");
-    Route::get("/students/show-data/{id}", [ProcessController::class, "showStudent"])->name("student.show");
+    Route::get("/students/show-data/{id}", [AdminController::class, "showStudent"])->name("student.show");
 
     // Process (image)
     Route::get("/process/accept-image/{id}", [ProcessController::class, "aceptImage"])->name("process.aceptImage");

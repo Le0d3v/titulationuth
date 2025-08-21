@@ -167,6 +167,12 @@
                                         </div>
                                     </form>
                                 </div>
+                                <p class="text-sm mt-5">
+                                    Comentario Actual:
+                                    <span class="font-bold">
+                                        {{$data->process->image_coments}}
+                                    </span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -264,6 +270,12 @@
                                         </div>
                                     </form>
                                 </div>
+                                <p class="text-sm mt-5">
+                                    Comentario Actual:
+                                    <span class="font-bold">
+                                        {{$data->process->donation_coments}}
+                                    </span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -351,6 +363,12 @@
                                         </div>
                                     </form>
                                 </div>
+                                <p class="text-sm mt-5">
+                                    Comentario Actual:
+                                    <span class="font-bold">
+                                        {{$data->process->tittle_coments}}
+                                    </span>
+                                </p>
                             </div>
                         </div>
                     </div>
