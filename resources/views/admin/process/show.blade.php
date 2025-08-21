@@ -23,6 +23,61 @@
                 <div class="mt-5 px-5">
                     <div class="rounded-lg shadow bg-gray-50 p-5">
                         <legend class="font-bold text-green-400 text-3xl mb-2">
+                            Validación de Datos Personales (Realizado por el estudiante)
+                        </legend>
+                        <div class="flex gap-16 items-center">
+                            <div class="w-full">
+                                <p class="text-sm text-gray-400 font-bold mt-5">
+                                    Estado del Proceso:
+                                    @if ($data->process->data_validation == 0)
+                                        <span class="p-1 rounded-lg bg-yellow-400 text-white font-bold">
+                                            Pendiente
+                                        </span>
+                                    @elseif ($data->process->data_validation == 1)
+                                        <span class="p-1 rounded-lg bg-green-500 text-white font-bold">
+                                            Completado
+                                        </span>
+                                    @endif
+                                </p>
+                                <h1 class="text-center font-bold text-xl mt-3">
+                                    Datos Del Estudiante
+                                </h1>
+                                <div class="mt-5 border-2 rounded border-dashed border-gray-400 p-5">
+                                </div>
+                            </div>
+                            <div class="w-full">
+                                <h1 class="text-center font-bold text-xl">
+                                    Enviar un Comentario (Opcional)
+                                </h1>
+                                <div class="mt-5 shadow-lg rounded p-5">
+                                    <form 
+                                        action="{{route("process.comentImage")}}" 
+                                        method="post" 
+                                    >
+                                        @csrf
+                                        <label for="image_coment" class="text-sm text-gray-500 font-bold block">
+                                            Comentario:
+                                        </label>
+                                        <div class="p-2 bg-gray-100 rounded mt-3 w-full">
+                                            <textarea name="image_coment" id="image_coment" class="rounded w-full h-20">
+                                            </textarea>
+                                            <input type="hidden" name="id" value="{{$data->process_id}}">
+                                        </div>
+                                        <div class="flex justify-end mt-5">
+                                            <input 
+                                                type="submit" 
+                                                value="Enviar Comentarios" 
+                                                class="p-2 bg-green-500 text-white rounded hover:cursor-pointer hover:bg-green-700"
+                                                required
+                                            >
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg shadow bg-gray-50 p-5">
+                        <legend class="font-bold text-green-400 text-3xl mb-2">
                             Imágen para Titulación 
                         </legend>
                         <div class="flex gap-16 items-center">
