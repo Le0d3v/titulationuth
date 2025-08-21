@@ -17,13 +17,10 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-row justify-center items-center pt-1 sm:pt-0 bg-gray-100 w-full gap-2">
-            <div class="w-1/2 h-screen">
-                <img src="{{asset("img/auth.jpeg")}}" alt="" class="w-full h-screen">
-            </div>
-            <div class="w-1/2">
-                <div>
+            <div class="flex justify-center ">
+                <div class="bg-white shadow-md overflow-hidden p-5 rounded-lg">
                     <div class="flex justify-center">
-                        <a href="/" class="mx-auto -mt-5">
+                        <a href="/" class="mx-auto my-2">
                             <img src="{{asset("img/logo.png")}}" alt="">
                         </a>
                     </div>
@@ -31,7 +28,7 @@
                         Universidad Tecnológica de Huejotzingo
                     </h1>
                     <div class="w-full flex justify-center">
-                        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+                        <div class="w-full sm:max-w-md mt-6 px-6 py-1 sm:rounded-lg">
                             {{ $slot }}
                         </div>
                     </div>
