@@ -66,15 +66,9 @@
                                     @endif
                                 </td>
                                 <td class="text-center p-4">
-                                    @if (!$data_user->process->data_validation)
-                                        <p class="text-gray-400 text-sm">
-                                            Sin Comentarios
-                                        </p>
-                                    @else
-                                        <p class="text-sm">
-                                            {{$data_user->process->data_validation}}
-                                        </p>
-                                    @endif
+                                    <p class="text-gray-400 text-sm">
+                                        Sin Comentarios
+                                    </p>
                                 </td>
                                <td class="text-center p-4">
                                     <div>
@@ -112,7 +106,8 @@
                                         </p>
                                     @endif
                                 </td>
-                                @if (!$data_user->process->image_coments)
+                                <td>
+                                    @if (!$data_user->process->image_coments)
                                         <p class="text-gray-400 text-sm">
                                             Sin Comentarios
                                         </p>
@@ -121,6 +116,7 @@
                                             {{$data_user->process->image_coments}}
                                         </p>
                                     @endif
+                                </td>
                                <td class="text-center p-4">
                                     <div>
                                         <a href="{{route("myFiles")}}" class="p-1 rounded bg-blue-500 text-white font-bold">
