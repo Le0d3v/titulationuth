@@ -66,9 +66,15 @@
                                     @endif
                                 </td>
                                 <td class="text-center p-4">
-                                    <p class="text-gray-400 text-sm">
-                                       Sin Comentarios
-                                    </p>
+                                    @if (!$data_user->process->data_validation)
+                                        <p class="text-gray-400 text-sm">
+                                            Sin Comentarios
+                                        </p>
+                                    @else
+                                        <p class="text-sm">
+                                            {{$data_user->process->data_validation}}
+                                        </p>
+                                    @endif
                                 </td>
                                <td class="text-center p-4">
                                     <div>
@@ -106,11 +112,15 @@
                                         </p>
                                     @endif
                                 </td>
-                                <td class="text-center p-4">
-                                    <p class="text-sm">
-                                       Imágenes Aceptadas
-                                    </p>
-                                </td>
+                                @if (!$data_user->process->donation_payment)
+                                        <p class="text-gray-400 text-sm">
+                                            Sin Comentarios
+                                        </p>
+                                    @else
+                                        <p class="text-sm">
+                                            {{$data_user->process->donation_payment}}
+                                        </p>
+                                    @endif
                                <td class="text-center p-4">
                                     <div>
                                         <a href="{{route("myFiles")}}" class="p-1 rounded bg-blue-500 text-white font-bold">
@@ -183,9 +193,15 @@
                                     @endif
                                 </td>
                                 <td class="text-center p-4">
-                                    <p class="text-gray-400 text-sm">
-                                       Sin Comentarios
-                                    </p>
+                                    @if (!$data_user->process->tittle_payment)
+                                        <p class="text-gray-400 text-sm">
+                                            Sin Comentarios
+                                        </p>
+                                    @else
+                                        <p class="text-sm">
+                                            {{$data_user->process->tittle_payment}}
+                                        </p>
+                                    @endif
                                 </td>
                                <td class="text-center p-4">
                                     <div>
