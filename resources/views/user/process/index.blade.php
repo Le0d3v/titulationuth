@@ -106,7 +106,7 @@
                                         </p>
                                     @endif
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     @if (!$data_user->process->image_coments)
                                         <p class="text-gray-400 text-sm">
                                             Sin Comentarios
