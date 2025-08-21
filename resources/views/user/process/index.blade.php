@@ -243,7 +243,7 @@
                                             </p>
                                        @elseif ($data_user->process->success ==  1)   
                                             <a 
-                                                href="{{route("myFiles")}}" 
+                                                href="{{route("letter.donwload", $data_user->id)}}" 
                                                 class="p-1 rounded bg-blue-500 text-white font-bold"
                                             >
                                                 Descargar Carta

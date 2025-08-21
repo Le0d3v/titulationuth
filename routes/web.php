@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FilesController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProcessController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/data-validation', [UserController::class, 'dataValidationStore'])->name('dataValidation.store');
     Route::get('/my-files', [UserController::class, 'myFiles'])->name('myFiles');
     Route::post('/my-files/payment-tittle-reference', [UserController::class, 'referenceStore'])->name('reference.store');
+    Route::get('/donwload-letter/{id}', [PDFController::class, 'generatePDF'])->name('letter.donwload');
 });
 
 // Admin
