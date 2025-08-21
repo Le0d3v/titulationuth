@@ -28,6 +28,7 @@ class ProcessController extends Controller
     public function aceptImage($id) {
         $data = DataSchool::where("process_id", $id)->get();
         $data[0]->process->images_upload = 1;
+        $data[0]->process->checkSucces();
         $data[0]->process->save();
 
         return back();
@@ -36,6 +37,7 @@ class ProcessController extends Controller
     public function rejectImage($id) {
         $data = DataSchool::where("process_id", $id)->get();
         $data[0]->process->images_upload = 3;
+        $data[0]->process->checkSucces();
         $data[0]->process->save();
 
         return back();
@@ -56,6 +58,7 @@ class ProcessController extends Controller
     public function aceptDonation($id) {
         $data = DataSchool::where("process_id", $id)->get();
         $data[0]->process->donation_payment = 1;
+        $data[0]->process->checkSucces();
         $data[0]->process->save();
 
         return back();
@@ -64,6 +67,7 @@ class ProcessController extends Controller
     public function rejectDonation($id) {
         $data = DataSchool::where("process_id", $id)->get();
         $data[0]->process->donation_payment = 3;
+        $data[0]->process->checkSucces();
         $data[0]->process->save();
 
         return back();
@@ -81,9 +85,11 @@ class ProcessController extends Controller
 
         return back();
     }
+
     public function aceptTittle($id) {
         $data = DataSchool::where("process_id", $id)->get();
         $data[0]->process->tittle_payment = 1;
+        $data[0]->process->checkSucces();
         $data[0]->process->save();
 
         return back();
@@ -92,6 +98,7 @@ class ProcessController extends Controller
     public function rejectTittle($id) {
         $data = DataSchool::where("process_id", $id)->get();
         $data[0]->process->tittle_payment = 3;
+        $data[0]->process->checkSucces();
         $data[0]->process->save();
 
         return back();

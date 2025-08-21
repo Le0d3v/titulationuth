@@ -213,6 +213,45 @@
                                     </div>
                                </td>
                             </tr>
+                            <tr class="border-b-2 py-1">
+                                <td class="text-center p-4">
+                                    <p class="text-sm">
+                                        {{"Obtención de Carta de Exención de Titulación"}}
+                                    </p>
+                                </td>
+                                <td class="text-center p-4">
+                                    @if ($data_user->process->success == 0)
+                                        <p class="p-1 rounded-lg bg-yellow-400 text-white font-bold">
+                                            Pendiente
+                                        </p>
+                                    @elseif ($data_user->process->success == 1)
+                                        <p class="p-1 rounded-lg bg-green-500 text-white font-bold">
+                                            Completado
+                                        </p>
+                                    @endif
+                                </td>
+                                <td class="text-center p-4">
+                                    <p class="text-gray-400 text-sm">
+                                        Se obtiene tras haber completado todos los procesos anteriores
+                                    </p>
+                                </td>
+                               <td class="text-center p-4">
+                                    <div>
+                                       @if ($data_user->process->success ==  0)
+                                            <p class="hover:cursor-not-allowed text-gray-400">
+                                                Inavilitado
+                                            </p>
+                                       @elseif ($data_user->process->success ==  1)   
+                                            <a 
+                                                href="{{route("myFiles")}}" 
+                                                class="p-1 rounded bg-blue-500 text-white font-bold"
+                                            >
+                                                Descargar Carta
+                                            </a>
+                                       @endif 
+                                    </div>
+                               </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

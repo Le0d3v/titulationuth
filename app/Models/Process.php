@@ -11,7 +11,7 @@ class Process extends Model
         "images_upload",
         "donation_payment",
         "tittle_payment",
-        "dataSchool_id",
+        "success"
     ];
 
     public function dataschool()
@@ -103,4 +103,11 @@ class Process extends Model
         return $processes;
     }
 
+    public function checkSucces() {
+        if($this->data_validation == 1 && $this->images_upload == 1 && $this->donation_payment == 1 && $this->tittle_payment == 1) {
+            $this->success = 1;
+        } else {
+            $this->success = 0;
+        }
+    }
 }
