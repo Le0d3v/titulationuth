@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DataSchool;
-use App\Models\Process;
 use App\Models\User;
-use Dflydev\DotAccessData\Data;
+use App\Models\Process;
+use App\Models\DataSchool;
 use Illuminate\Http\Request;
+use Dflydev\DotAccessData\Data;
+use Illuminate\Support\Facades\Storage;
 
 class WebServicesController extends Controller
 {
@@ -34,5 +35,11 @@ class WebServicesController extends Controller
     public function getProcess($id) {
         $processes = Process::find($id);
         return $processes->toJson();
+    }
+
+    public function getPDF($id) {
+        $process = Process::find($id);
+        $url = Storage::url("app/public/pdfs/" . $process->image_donation_url);
+        return response()->json(['url' => $url], 200);
     }
 }
