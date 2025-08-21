@@ -18,6 +18,26 @@
                         <legend class="font-bold text-green-400 text-3xl mb-2">
                             Imágen para Titulación 
                         </legend>
+                        <p class="text-sm text-gray-400 font-bold mt-5">
+                            Estado del Proceso:
+                            @if ($data->process->images_upload == 0)
+                                <span class="p-1 rounded-lg bg-yellow-400 text-white font-bold">
+                                    Pendiente
+                                </span>
+                            @elseif ($data->process->images_upload == 1)
+                                <span class="p-1 rounded-lg bg-green-500 text-white font-bold">
+                                    Completado
+                                </span>
+                            @elseif ($data->process->images_upload == 2)
+                                <span class="p-1 rounded-lg bg-blue-500 text-white font-bold">
+                                    En Revisión
+                                </span>
+                            @elseif ($data->process->images_upload == 3)
+                                <span class="p-1 rounded-lg bg-red-500 text-white font-bold">
+                                    Rechazado
+                                </span>
+                            @endif
+                        </p>
                         <div class="flex gap-16 items-center">
                             <div class="w-full">
                                 <h1 class="text-center font-bold text-xl">
@@ -79,7 +99,27 @@
                         <legend class="font-bold text-green-400 text-3xl mb-2">
                             Compbroante de Donación por Inmobiliaria (PDF)
                         </legend>
-                        <div class="flex gap-16 items-center">
+                        <p class="text-sm text-gray-400 font-bold mt-5">
+                            Estado del Proceso:
+                            @if ($data->process->donation_payment == 0)
+                                <span class="p-1 rounded-lg bg-yellow-400 text-white font-bold">
+                                    Pendiente
+                                </span>
+                            @elseif ($data->process->donation_payment == 1)
+                                <span class="p-1 rounded-lg bg-green-500 text-white font-bold">
+                                    Completado
+                                </span>
+                            @elseif ($data->process->donation_payment == 2)
+                                <span class="p-1 rounded-lg bg-blue-500 text-white font-bold">
+                                    En Revisión
+                                </span>
+                            @elseif ($data->process->donation_payment == 3)
+                                <span class="p-1 rounded-lg bg-red-500 text-white font-bold">
+                                    Rechazado
+                                </span>
+                            @endif
+                        </p>
+                        <div class="flex gap-16 items-center mt-3">
                             <div class="w-full">
                                 <h1 class="text-center font-bold text-xl">
                                     PDF Actual
@@ -149,7 +189,27 @@
                         <legend class="font-bold text-green-400 text-3xl mb-2">
                             Referencia de Pago de Titulo Universitario
                         </legend>
-                        <div class="flex gap-16 items-center">
+                        <p class="text-sm text-gray-400 font-bold mt-5">
+                            Estado del Proceso:
+                            @if ($data->process->tittle_payment == 0)
+                                <span class="p-1 rounded-lg bg-yellow-400 text-white font-bold">
+                                    Pendiente
+                                </span>
+                            @elseif ($data->process->tittle_payment == 1)
+                                <span class="p-1 rounded-lg bg-green-500 text-white font-bold">
+                                    Completado
+                                </span>
+                            @elseif ($data->process->tittle_payment == 2)
+                                <span class="p-1 rounded-lg bg-blue-500 text-white font-bold">
+                                    En Revisión
+                                </span>
+                            @elseif ($data->process->tittle_payment == 3)
+                                <span class="p-1 rounded-lg bg-red-500 text-white font-bold">
+                                    Rechazado
+                                </span>
+                            @endif
+                        </p>
+                        <div class="flex gap-16 items-center mt-3">
                             <div class="w-full">
                                 <h1 class="text-center font-bold text-xl">
                                     Referencia Actual

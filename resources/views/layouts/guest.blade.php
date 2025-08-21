@@ -16,7 +16,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-row justify-center items-center pt-1 sm:pt-0 bg-gradient-to-br from-green-400 to-emerald-500 w-full gap-2">
+        <div class="min-h-screen flex flex-row justify-center items-center pt-1 sm:pt-0 bg-gray-100 w-full gap-2">
             <div class="flex justify-center ">
                 <div class="bg-white shadow-md overflow-hidden p-5 rounded-lg">
                     <div class="flex justify-center">
@@ -24,11 +24,11 @@
                             <img src="{{asset("img/logo.png")}}" alt="">
                         </a>
                     </div>
-                    <h1 class="text-center  font-bold text-2xl -mt-5">
+                    <h1 class="text-center font-bold text-2xl">
                         Universidad Tecnológica de Huejotzingo
                     </h1>
                     <div class="w-full flex justify-center">
-                        <div class="w-full sm:max-w-md mt-6 px-6 py-1 sm:rounded-lg">
+                        <div class="w-full sm:max-w-md mt-6 px-6 py-3 sm:rounded-lg">
                             {{ $slot }}
                         </div>
                     </div>

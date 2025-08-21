@@ -2,7 +2,7 @@
     <div id="auth-container">
 
         <div id="login-form" class="auth-form">
-            <p class="text-center text-gray-500 text-lg my-3">
+            <p class="text-center text-gray-500 text-lg mt-1 my-3">
                 Inicio de Sesión
             </p>
             <!-- Session Status -->
