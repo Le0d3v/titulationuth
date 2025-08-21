@@ -73,5 +73,6 @@ Route::get('/api/get-process/{id}', [WebServicesController::class, 'getProcess']
 Route::get('/api/get-dataschool/{id}', [WebServicesController::class, 'getDataSchool'])->name('api.getDatSchool');
 Route::get('/api/dataschools/{id}', [StudentController::class, 'showData'])->name('dataschools.show');
 Route::get('/api/get-pdf/{id}', [WebServicesController::class, 'getPDF'])->name('pdf.get');
+Route::get('/api/get-image/{id}', [WebServicesController::class, 'getImage'])->name('image.get');
 
 require __DIR__.'/auth.php';

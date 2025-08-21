@@ -42,4 +42,10 @@ class WebServicesController extends Controller
         $url = Storage::url("app/public/pdfs/" . $process->image_donation_url);
         return response()->json(['url' => $url], 200);
     }
+
+    public function getImage($id) {
+        $process = Process::find($id);
+        $url = asset("public/img/uploads/pictures/" . $process->image_titulation_url);
+        return response()->json(['url' => $url], 200);
+    }
 }
