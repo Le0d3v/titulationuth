@@ -97,7 +97,7 @@
                     </div>
                     <div class="rounded-lg shadow bg-gray-50 p-5 mt-10">
                         <legend class="font-bold text-green-400 text-3xl mb-2">
-                            Compbroante de Donación por Inmobiliaria (PDF)
+                            Comprobante de Donación por Inmobiliaria (PDF)
                         </legend>
                         <p class="text-sm text-gray-400 font-bold mt-5">
                             Estado del Proceso:
